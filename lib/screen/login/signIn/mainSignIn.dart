@@ -1,8 +1,8 @@
 import 'package:Toza/contrains.dart';
-import 'package:Toza/screen/homePage/main_homePage.dart';
 import 'package:Toza/screen/login/components/btnLogin.dart';
 import 'package:Toza/screen/login/signIn/components/signInWithG.dart';
 import 'package:Toza/screen/login/signUp/mainSignUp.dart';
+import 'package:Toza/screen/menu/menuBottom.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -80,7 +80,7 @@ class _SignInState extends State<SignIn> {
                   GestureDetector(
                     onTap: (){
 
-                      Get.to(HomPageToza());
+                      Get.to(MenuBottom());
 
                       print("object");
                     },
