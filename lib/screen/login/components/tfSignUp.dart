@@ -6,7 +6,8 @@ class TextFieldSignUpEmail extends StatefulWidget {
   String lableText;
   bool autoFocus;
   String hintext;
-  TextFieldSignUpEmail({this.obscure, this.lableText,this.autoFocus,this.hintext});
+   TextEditingController txtController = TextEditingController();
+  TextFieldSignUpEmail({this.obscure, this.lableText,this.autoFocus,this.hintext,this.txtController});
 
   @override
   _TextFieldSignUpEmailState createState() => _TextFieldSignUpEmailState();
@@ -18,6 +19,7 @@ class _TextFieldSignUpEmailState extends State<TextFieldSignUpEmail> {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: TextFormField(
+        controller: widget.txtController,
         obscureText: widget.obscure,
         autofocus: widget.autoFocus,
         decoration: InputDecoration(
@@ -46,7 +48,9 @@ class TextFieldSignUpPassword extends StatefulWidget {
   String lableText;
   bool autoFocus;
    String hintext;
-  TextFieldSignUpPassword({this.obscure, this.lableText,this.autoFocus,this.hintext});
+   TextEditingController txtController = TextEditingController();
+   
+  TextFieldSignUpPassword({this.obscure, this.lableText,this.autoFocus,this.hintext,this.txtController});
 
   @override
   _TextFieldSignUpPasswordState createState() => _TextFieldSignUpPasswordState();
@@ -58,6 +62,7 @@ class _TextFieldSignUpPasswordState extends State<TextFieldSignUpPassword> {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: TextFormField(
+        controller: widget.txtController,
         obscureText: widget.obscure,
         autofocus: widget.autoFocus,
         decoration: InputDecoration(

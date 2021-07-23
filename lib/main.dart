@@ -1,8 +1,13 @@
-import 'package:Toza/screen/menu/menuBottom.dart';
+import 'package:Toza/bingdings/authBindings.dart';
+import 'package:Toza/screen/login/signIn/mainSignIn.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -10,34 +15,23 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+      statusBarBrightness: Brightness.dark,
+    ));
+     return GetMaterialApp(
+             initialBinding: AuthBinding(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
       fontFamily: "Montserrat",
        
       ),
-      home: MyHomePage(),
+      home: SignIn(),
       
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
 
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
- 
-
-  @override
-  Widget build(BuildContext context) {
-  
-    // return OnboardingScreen();
-    return MenuBottom();   
-     
+    
   }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1053081828797",
+    "project_id": "toza-chat",
+    "storage_bucket": "toza-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053081828797:android:129347223ea1573a6de6d4",
+        "android_client_info": {
+          "package_name": "com.example.appchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053081828797-k41d7gu22s291gsevdlhtkkomivevk77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2nBHFDyViYmwAdEimmwO-s3WImaiKP0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053081828797-k41d7gu22s291gsevdlhtkkomivevk77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

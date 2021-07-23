@@ -1,4 +1,5 @@
 import 'package:Toza/contrains.dart';
+import 'package:Toza/controller/authController.dart';
 import 'package:Toza/screen/login/components/btnLogin.dart';
 import 'package:Toza/screen/login/components/tfSignUp.dart';
 import 'package:Toza/screen/login/forgotPassword/mainForgotPassword.dart';
@@ -6,12 +7,11 @@ import 'package:Toza/screen/login/signUp/mainSignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignWithGoogle extends StatefulWidget {
-  @override
-  _SignWithGoogleState createState() => _SignWithGoogleState();
-}
+class SignWithGoogle extends GetWidget<AuthController>{
+ 
 
-class _SignWithGoogleState extends State<SignWithGoogle> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +71,7 @@ class _SignWithGoogleState extends State<SignWithGoogle> {
                       height: MediaQuery.of(context).size.height*0.1,
                     ),
                     TextFieldSignUpEmail(
+                      txtController: emailController,
                       obscure: false,
                       lableText: "Email",
                       autoFocus: false,
@@ -80,6 +81,7 @@ class _SignWithGoogleState extends State<SignWithGoogle> {
                       height: 20,
                     ),
                     TextFieldSignUpPassword(
+                      txtController: passwordController,
                       obscure: true,
                       lableText: "Mật khẩu",
                       autoFocus: false,
@@ -110,7 +112,8 @@ class _SignWithGoogleState extends State<SignWithGoogle> {
                     GestureDetector(
 
                         onTap: (){
-                        Get.snackbar("TThoai muốn nói","Yêu ZaaLink");
+                          controller.login(emailController.text,passwordController.text);
+
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.07,

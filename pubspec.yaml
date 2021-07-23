@@ -20,10 +20,13 @@ dependencies:
   get: ^4.1.4
   flutter_svg: ^0.22.0
   cached_network_image: ^2.3.3
- 
-  
 
- 
+  #firebase 
+  cloud_firestore: ^1.0.6
+  firebase_auth: ^1.1.1
+  firebase_core: ^1.0.4
+  firebase_messaging: ^10.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

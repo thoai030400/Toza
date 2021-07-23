@@ -1,16 +1,15 @@
 import 'package:Toza/contrains.dart';
+import 'package:Toza/controller/authController.dart';
 import 'package:Toza/screen/login/components/btnLogin.dart';
 import 'package:Toza/screen/login/components/tfSignUp.dart';
 import 'package:Toza/screen/login/signIn/mainSignIn.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
+class SignUp extends GetWidget<AuthController> {
+ 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +69,7 @@ class _SignUpState extends State<SignUp> {
                       height: MediaQuery.of(context).size.height * 0.08,
                     ),
                     TextFieldSignUpEmail(
+                    
                       obscure: false,
                       lableText: "Họ và tên",
                       autoFocus: false,
@@ -78,36 +78,98 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 20,
                     ),
-                    TextFieldSignUpPassword(
-                      obscure: true,
-                      lableText: "Email",
-                      autoFocus: false,
-                      hintext: "Nhập email",
+                     Container(
+      width: MediaQuery.of(context).size.width,
+      child: TextFormField(
+        controller: emailController,
+        obscureText: false,
+        autofocus: false,
+        decoration: InputDecoration(
+          hintText:"Nhập email",
+          hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            labelText: "Email",
+            labelStyle: TextStyle(
+              fontSize: 18
+            ),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: pinkDark),
+                borderRadius: BorderRadius.circular(30)),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: Colors.grey[500]),
+                borderRadius: BorderRadius.circular(30))),
+      ),
+    ),SizedBox(
+                      height: 20,
                     ),
+    Container(
+      width: MediaQuery.of(context).size.width,
+      child: TextFormField(
+     
+        controller: passwordController,
+        obscureText: false,
+        autofocus: false,
+        decoration: InputDecoration(
+           hintText:"Nhập email",
+          hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            labelText: "Email",
+            labelStyle: TextStyle(
+              fontSize: 18
+            ),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: pinkDark),
+                borderRadius: BorderRadius.circular(30)),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: Colors.grey[500]),
+                borderRadius: BorderRadius.circular(30))),
+      ),
+    )
+                    // TextFieldSignUpEmail(
+                    //    txtController: emailController,
+                    //   obscure: false,
+                    //   lableText: "Email",
+                    //   autoFocus: false,
+                    //   hintext: "Nhập email",
+                    // ),
+                    ,
                     SizedBox(
                       height: 20,
                     ),
-                    TextFieldSignUpPassword(
-                      obscure: true,
-                      lableText: "Mật khẩu",
-                      autoFocus: false,
-                      hintext: "Nhập mật khẩu ",
-                    ),
+
+
+                    // TextFieldSignUpPassword(
+                    //   obscure: true,
+                    //   lableText: "Mật khẩu",
+                    //   autoFocus: false,
+                    //   hintext: "Nhập mật khẩu ",
+                    // ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          gradient: LinearGradient(colors: [pinkDark, pink])),
-                      child: Center(
-                        child: Text("Đăng nhập",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold)),
+                    GestureDetector(
+                      onTap: (){
+                      
+                       controller.createUser(emailController.text, passwordController.text);
+
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            gradient: LinearGradient(colors: [pinkDark, pink])),
+                        child: Center(
+                          child: Text("Đăng nhập",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                       ),
                     ),
                     SizedBox(
